@@ -6,6 +6,6 @@ WriteLine("Start simulation");
 unsafe { if(sizeof(SensorMeasurement) != SensorMeasurement.SizeInBytes) throw new() ; }
 
 Room room = new();
-room.TakeMeasurements();
+room.TakeMeasurements(200);
 
 WriteLine("You are lucky!");

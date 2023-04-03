@@ -10,11 +10,11 @@ public struct SensorMeasurement
     public double O2;
     public double Temperature;
     public double Humidity;
-    public long IsFielled;
+    public long IsFilled;
     public DateTime TimeRecorded;
     public void FillMeasurement()
     {
-        IsFielled = 1;
+        IsFilled = 1;
         TimeRecorded = DateTime.UtcNow;
     }
 }

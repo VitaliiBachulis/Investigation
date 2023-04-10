@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Investigation/Optimized
+/Investigation/QuickJit
+/Investigation/WinDbg.dml

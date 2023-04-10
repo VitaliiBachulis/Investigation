@@ -1,12 +1,11 @@
-﻿using System.Diagnostics.Metrics;
-using System.Xml.Linq;
-
-namespace IntruderAlert;
-
+﻿namespace IntruderAlert;
 public unsafe ref struct DebounceMeasurement
 {
+#if VisualOutput
     private const int debounceSize = 50;
-
+#else
+    private const int debounceSize = 2;
+#endif
     private int totalMeasurements = 0;
     private fixed byte measurements[debounceSize * SensorMeasurement.SizeInBytes];
     private readonly Span<SensorMeasurement> recentMeasurements;
@@ -17,10 +16,10 @@ public unsafe ref struct DebounceMeasurement
             recentMeasurements = new Span<SensorMeasurement>(m, debounceSize);
         }
     }
-    public void AddMeasurement(scoped in SensorMeasurement datum)
+    public void MakeMeasurement()
     {
         int index = totalMeasurements % debounceSize;
-        recentMeasurements[index] = datum;
+        recentMeasurements[index].FillMeasurement();
         totalMeasurements++;
     }
 }

@@ -1,20 +1,17 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace IntruderAlert;
-
+﻿namespace IntruderAlert;
 public struct SensorMeasurement
 {
     public const int SizeInBytes = 48;
 
-    public double CO2;
-    public double O2;
-    public double Temperature;
-    public double Humidity;
+    public long Field1;
+    public long Field2;
+    public long Field3;
+    public long Field4;
+    public long Field5;
     public long IsFilled;
-    public DateTime TimeRecorded;
     public void FillMeasurement()
     {
+        Field1 = long.MaxValue;
         IsFilled = 1;
-        TimeRecorded = DateTime.UtcNow;
     }
 }

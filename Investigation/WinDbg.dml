@@ -1,0 +1,17 @@
+<DmlText>tt - go to the method end!
+
+sxeld coreclr
+@$scopeip
+!bpmd Investigation.dll IntruderAlert.Room.TakeMeasurements
+!bpmd Investigation.dll Program.&lt;Main&gt;$
+!bpmd  Investigation.dll IntruderAlert.Room..ctor
+!bpmd  Investigation.dll IntruderAlert.DebounceMeasurement..ctor
+!bpmd  Investigation.dll IntruderAlert.SensorMeasurement.FillMeasurement
+!bpmd  Investigation.dll IntruderAlert.DebounceMeasurement.MakeMeasurement
+
+!bpmd WorkingExample.dll Program.&lt;Main&gt;$
+!bpmd  WorkingExample.dll WorkingExample.Room..ctor
+!bpmd WorkingExample.dll WorkingExample.Room.TakeMeasurements
+!bpmd  WorkingExample.dll WorkingExample.SensorMeasurement.FillMeasurement
+
+</DmlText>

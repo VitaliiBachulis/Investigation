@@ -7,19 +7,14 @@ Room room = new();
 #if VisualOutput
 room.TakeMeasurements(200);
 #else
-room.TakeMeasurements(4);
+room.TakeMeasurements(14);
 #endif
-End();
+WriteLine("You are lucky!");
+ReadLine();
 
 [Conditional("VisualOutput")]
 static void Start()
 {
     WriteLine("Start simulation");
     unsafe { if (sizeof(SensorMeasurement) != SensorMeasurement.SizeInBytes) throw new(); }
-}
-
-[Conditional("VisualOutput")]
-static void End()
-{
-    WriteLine("You are lucky!");
 }

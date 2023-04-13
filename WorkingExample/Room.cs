@@ -4,7 +4,7 @@ public unsafe ref struct Room
 #if VisualOutput
     private const int debounceSize = 50;
 #else
-    private const int debounceSize = 2;
+    private const int debounceSize = 12;
 #endif
     private int totalMeasurements = 0;
     private fixed byte measurements[debounceSize * SensorMeasurement.SizeInBytes];

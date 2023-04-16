@@ -1,0 +1,76 @@
+0:000> !DumpMD /d 00007ffee068bfc8
+Method Name:          IntruderAlert.Room..ctor()
+Class:                00007ffee0672500
+MethodTable:          00007ffee068bff0
+mdToken:              0000000006000008
+Module:               00007ffee065ca20
+IsJitted:             yes
+Current CodeAddr:     00007ffee0590740
+Version History:
+  ILCodeVersion:      0000000000000000
+  ReJIT ID:           0
+  IL Addr:            000001e80a3c214c
+     CodeAddr:           00007ffee0590740  (MinOptJitted)
+     NativeCodeVersion:  0000000000000000
+0:000> !DumpIL /i 000001e80a3c214c
+ilAddr = 000001E80A3C214C
+IL_0000: nop 
+IL_0001: ldarg.0 
+IL_0002: newobj TOKEN 6000006
+IL_0007: stfld TOKEN 4000006
+IL_000c: ret 
+0:000> !U /d 00007ffee0590740
+Normal JIT generated code
+IntruderAlert.Room..ctor()
+ilAddr is 000001E80A3C214C pImport is 000001F92EAD3040
+Begin 00007FFEE0590740, size bf
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\Room.cs @ 6:
+>>> 00007ffe`e0590740 55              push    rbp
+00007ffe`e0590741 57              push    rdi
+00007ffe`e0590742 56              push    rsi
+00007ffe`e0590743 4881ec90020000  sub     rsp,290h
+00007ffe`e059074a 488dac24a0020000 lea     rbp,[rsp+2A0h]
+00007ffe`e0590752 33c0            xor     eax,eax
+00007ffe`e0590754 48898588fdffff  mov     qword ptr [rbp-278h],rax
+00007ffe`e059075b 0f57e4          xorps   xmm4,xmm4
+00007ffe`e059075e 0f29a590fdffff  movaps  xmmword ptr [rbp-270h],xmm4
+00007ffe`e0590765 48b8c0fdffffffffffff mov rax,0FFFFFFFFFFFFFDC0h
+00007ffe`e059076f 0f296405e0      movaps  xmmword ptr [rbp+rax-20h],xmm4
+00007ffe`e0590774 0f296405f0      movaps  xmmword ptr [rbp+rax-10h],xmm4
+00007ffe`e0590779 0f292428        movaps  xmmword ptr [rax+rbp],xmm4
+00007ffe`e059077d 4883c030        add     rax,30h
+00007ffe`e0590781 75ec            jne     00007ffe`e059076f
+00007ffe`e0590783 488945e0        mov     qword ptr [rbp-20h],rax
+00007ffe`e0590787 48b8cf0005c68a520000 mov rax,528AC60500CFh
+00007ffe`e0590791 488945e8        mov     qword ptr [rbp-18h],rax
+00007ffe`e0590795 48894d10        mov     qword ptr [rbp+10h],rcx
+00007ffe`e0590799 488b4510        mov     rax,qword ptr [rbp+10h]
+00007ffe`e059079d 48898588fdffff  mov     qword ptr [rbp-278h],rax
+00007ffe`e05907a4 833d1dc50c0000  cmp     dword ptr [00007ffe`e065ccc8],0
+00007ffe`e05907ab 7405            je      00007ffe`e05907b2
+00007ffe`e05907ad e85e6fc15f      call    coreclr!GetCLRRuntimeHost+0x78320 (00007fff`401a7710) (JitHelp: CORINFO_HELP_DBG_IS_JUST_MY_CODE)
+00007ffe`e05907b2 90              nop
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\Room.cs @ 8:
+00007ffe`e05907b3 488d8d90fdffff  lea     rcx,[rbp-270h]
+00007ffe`e05907ba ff15b0b31000    call    qword ptr [00007ffe`e069bb70] (IntruderAlert.DebounceMeasurement..ctor(), mdToken: 0000000006000006)
+00007ffe`e05907c0 488bbd88fdffff  mov     rdi,qword ptr [rbp-278h]
+00007ffe`e05907c7 488db590fdffff  lea     rsi,[rbp-270h]
+00007ffe`e05907ce b949000000      mov     ecx,49h
+00007ffe`e05907d3 f348a5          rep movs qword ptr [rdi],qword ptr [rsi]
+00007ffe`e05907d6 e875f1ae5f      call    coreclr!coreclr_shutdown_2+0xa9f0 (00007fff`4007f950) (JitHelp: CORINFO_HELP_ASSIGN_BYREF)
+00007ffe`e05907db 48a5            movs    qword ptr [rdi],qword ptr [rsi]
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\Room.cs @ 6:
+00007ffe`e05907dd 90              nop
+00007ffe`e05907de 48b9cf0005c68a520000 mov rcx,528AC60500CFh
+00007ffe`e05907e8 48394de8        cmp     qword ptr [rbp-18h],rcx
+00007ffe`e05907ec 7405            je      00007ffe`e05907f3
+00007ffe`e05907ee e8adadc15f      call    coreclr!GetCLRRuntimeHost+0x7c1b0 (00007fff`401ab5a0) (JitHelp: CORINFO_HELP_FAIL_FAST)
+00007ffe`e05907f3 90              nop
+00007ffe`e05907f4 4881c490020000  add     rsp,290h
+00007ffe`e05907fb 5e              pop     rsi
+00007ffe`e05907fc 5f              pop     rdi
+00007ffe`e05907fd 5d              pop     rbp
+00007ffe`e05907fe c3              ret

@@ -1,0 +1,59 @@
+0:000> !DumpMD /d 00007ffee068baa8
+Method Name:          IntruderAlert.SensorMeasurement.FillMeasurement()
+Class:                00007ffee0672b00
+MethodTable:          00007ffee068bac0
+mdToken:              000000000600000A
+Module:               00007ffee065ca20
+IsJitted:             yes
+Current CodeAddr:     00007ffee0590af0
+Version History:
+  ILCodeVersion:      0000000000000000
+  ReJIT ID:           0
+  IL Addr:            000001e80a3c2188
+     CodeAddr:           00007ffee0590af0  (MinOptJitted)
+     NativeCodeVersion:  0000000000000000
+0:000> !DumpIL /i 000001e80a3c2188
+ilAddr = 000001E80A3C2188
+IL_0000: nop 
+IL_0001: ldarg.0 
+IL_0002: ldc.i8 -1
+IL_000b: stfld TOKEN 4000008
+IL_0010: ldarg.0 
+IL_0011: ldc.i4.1 
+IL_0012: conv.i8 
+IL_0013: stfld TOKEN 400000d
+IL_0018: ret 
+0:000> !U /d 00007ffee0590af0
+Normal JIT generated code
+IntruderAlert.SensorMeasurement.FillMeasurement()
+ilAddr is 000001E80A3C2188 pImport is 000001F92EAD3190
+Begin 00007FFEE0590AF0, size 46
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\SensorMeasurement.cs @ 13:
+>>> 00007ffe`e0590af0 55              push    rbp
+00007ffe`e0590af1 57              push    rdi
+00007ffe`e0590af2 4883ec28        sub     rsp,28h
+00007ffe`e0590af6 488d6c2430      lea     rbp,[rsp+30h]
+00007ffe`e0590afb 48894d10        mov     qword ptr [rbp+10h],rcx
+00007ffe`e0590aff 833dc2c10c0000  cmp     dword ptr [00007ffe`e065ccc8],0
+00007ffe`e0590b06 7405            je      Investigation!IntruderAlert.SensorMeasurement.FillMeasurement+0x1d (00007ffe`e0590b0d)
+00007ffe`e0590b08 e8036cc15f      call    coreclr!GetCLRRuntimeHost+0x78320 (00007fff`401a7710) (JitHelp: CORINFO_HELP_DBG_IS_JUST_MY_CODE)
+00007ffe`e0590b0d 90              nop
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\SensorMeasurement.cs @ 14:
+00007ffe`e0590b0e 488b4510        mov     rax,qword ptr [rbp+10h]
+00007ffe`e0590b12 48baffffffffffffff7f mov rdx,7FFFFFFFFFFFFFFFh
+00007ffe`e0590b1c 488910          mov     qword ptr [rax],rdx
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\SensorMeasurement.cs @ 15:
+00007ffe`e0590b1f b801000000      mov     eax,1
+00007ffe`e0590b24 4898            cdqe
+00007ffe`e0590b26 488b5510        mov     rdx,qword ptr [rbp+10h]
+00007ffe`e0590b2a 48894228        mov     qword ptr [rdx+28h],rax
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\SensorMeasurement.cs @ 16:
+00007ffe`e0590b2e 90              nop
+00007ffe`e0590b2f 4883c428        add     rsp,28h
+00007ffe`e0590b33 5f              pop     rdi
+00007ffe`e0590b34 5d              pop     rbp
+00007ffe`e0590b35 c3              ret

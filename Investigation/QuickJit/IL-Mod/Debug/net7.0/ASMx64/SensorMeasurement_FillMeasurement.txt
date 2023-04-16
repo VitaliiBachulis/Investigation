@@ -1,0 +1,42 @@
+0:000> !DumpMD /d 00007ffee066ba90
+Method Name:          IntruderAlert.SensorMeasurement.FillMeasurement()
+Class:                00007ffee0652ad8
+MethodTable:          00007ffee066baa8
+mdToken:              0000000006000008
+Module:               00007ffee063ca20
+IsJitted:             yes
+Current CodeAddr:     00007ffee0570a00
+Version History:
+  ILCodeVersion:      0000000000000000
+  ReJIT ID:           0
+  IL Addr:            000001e0901c211c
+     CodeAddr:           00007ffee0570a00  (QuickJitted)
+     NativeCodeVersion:  0000000000000000
+0:000> !DumpIL /i 000001e0901c211c
+ilAddr = 000001E0901C211C
+IL_0000: nop 
+IL_0001: ldarg.0 
+IL_0002: ldc.i8 -1
+IL_000b: stfld TOKEN 4000004
+IL_0010: ldarg.0 
+IL_0011: ldc.i4.1 
+IL_0012: conv.i8 
+IL_0013: stfld TOKEN 4000009
+IL_0018: ret 
+0:000> !U /d 00007ffee0570a00
+Normal JIT generated code
+IntruderAlert.SensorMeasurement.FillMeasurement()
+ilAddr is 000001E0901C211C pImport is 000002264622B540
+Begin 00007FFEE0570A00, size 2a
+>>> 00007ffe`e0570a00 55              push    rbp
+00007ffe`e0570a01 488bec          mov     rbp,rsp
+00007ffe`e0570a04 48894d10        mov     qword ptr [rbp+10h],rcx
+00007ffe`e0570a08 488b4510        mov     rax,qword ptr [rbp+10h]
+00007ffe`e0570a0c 48baffffffffffffff7f mov rdx,7FFFFFFFFFFFFFFFh
+00007ffe`e0570a16 488910          mov     qword ptr [rax],rdx
+00007ffe`e0570a19 b801000000      mov     eax,1
+00007ffe`e0570a1e 4898            cdqe
+00007ffe`e0570a20 488b5510        mov     rdx,qword ptr [rbp+10h]
+00007ffe`e0570a24 48894228        mov     qword ptr [rdx+28h],rax
+00007ffe`e0570a28 5d              pop     rbp
+00007ffe`e0570a29 c3              ret

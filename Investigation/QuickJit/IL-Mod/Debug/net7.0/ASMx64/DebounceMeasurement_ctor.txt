@@ -1,0 +1,81 @@
+0:000> !DumpMD /d 00007ffee066bee0
+Method Name:          IntruderAlert.DebounceMeasurement..ctor()
+Class:                00007ffee0652560
+MethodTable:          00007ffee066bf08
+mdToken:              0000000006000009
+Module:               00007ffee063ca20
+IsJitted:             yes
+Current CodeAddr:     00007ffee0570750
+Version History:
+  ILCodeVersion:      0000000000000000
+  ReJIT ID:           0
+  IL Addr:            000001e0901c2138
+     CodeAddr:           00007ffee0570750  (QuickJitted)
+     NativeCodeVersion:  0000000000000000
+0:000> !DumpIL /i 000001e0901c2138
+ilAddr = 000001E0901C2138
+IL_0000: nop 
+IL_0001: ldarg.0 
+IL_0002: ldc.i4.0 
+IL_0003: stfld TOKEN 400000b
+IL_0008: ldarg.0 
+IL_0009: ldflda TOKEN 400000c
+IL_000e: ldflda TOKEN 400000e
+IL_0013: stloc.1 
+IL_0014: ldloc.1 
+IL_0015: conv.u 
+IL_0016: stloc.0 
+IL_0017: nop 
+IL_0018: ldarg.0 
+IL_0019: ldloc.0 
+IL_001a: ldc.i4.s 12
+IL_001c: newobj TOKEN a000018
+IL_0021: stfld TOKEN 400000d
+IL_0026: nop 
+IL_0027: ldc.i4.0 
+IL_0028: conv.u 
+IL_0029: stloc.1 
+IL_002a: ret 
+0:000> !U /d 00007ffee0570750
+Normal JIT generated code
+IntruderAlert.DebounceMeasurement..ctor()
+ilAddr is 000001E0901C2138 pImport is 000002264622A2E0
+Begin 00007FFEE0570750, size 7f
+>>> 00007ffe`e0570750 55              push    rbp
+00007ffe`e0570751 57              push    rdi
+00007ffe`e0570752 56              push    rsi
+00007ffe`e0570753 4883ec50        sub     rsp,50h
+00007ffe`e0570757 488d6c2460      lea     rbp,[rsp+60h]
+00007ffe`e057075c 0f57e4          xorps   xmm4,xmm4
+00007ffe`e057075f 0f2965d0        movaps  xmmword ptr [rbp-30h],xmm4
+00007ffe`e0570763 0f2965e0        movaps  xmmword ptr [rbp-20h],xmm4
+00007ffe`e0570767 48894d10        mov     qword ptr [rbp+10h],rcx
+00007ffe`e057076b 488b4d10        mov     rcx,qword ptr [rbp+10h]
+00007ffe`e057076f 33d2            xor     edx,edx
+00007ffe`e0570771 8911            mov     dword ptr [rcx],edx
+00007ffe`e0570773 488b4d10        mov     rcx,qword ptr [rbp+10h]
+00007ffe`e0570777 3809            cmp     byte ptr [rcx],cl
+00007ffe`e0570779 488b4d10        mov     rcx,qword ptr [rbp+10h]
+00007ffe`e057077d 4883c104        add     rcx,4
+00007ffe`e0570781 48894de0        mov     qword ptr [rbp-20h],rcx
+00007ffe`e0570785 488b4de0        mov     rcx,qword ptr [rbp-20h]
+00007ffe`e0570789 48894dc8        mov     qword ptr [rbp-38h],rcx
+00007ffe`e057078d 488b4dc8        mov     rcx,qword ptr [rbp-38h]
+00007ffe`e0570791 48894de8        mov     qword ptr [rbp-18h],rcx
+00007ffe`e0570795 488d4dd0        lea     rcx,[rbp-30h]
+00007ffe`e0570799 488b55e8        mov     rdx,qword ptr [rbp-18h]
+00007ffe`e057079d 41b80c000000    mov     r8d,0Ch
+00007ffe`e05707a3 ff153fb11000    call    qword ptr [00007ffe`e067b8e8] (System.Span`1[[IntruderAlert.SensorMeasurement, Investigation]]..ctor(Void*, Int32), mdToken: 0000000006001B12)
+00007ffe`e05707a9 488b7d10        mov     rdi,qword ptr [rbp+10h]
+00007ffe`e05707ad 4881c748020000  add     rdi,248h
+00007ffe`e05707b4 488d75d0        lea     rsi,[rbp-30h]
+00007ffe`e05707b8 e893f1b05f      call    coreclr!coreclr_shutdown_2+0xa9f0 (00007fff`4007f950) (JitHelp: CORINFO_HELP_ASSIGN_BYREF)
+00007ffe`e05707bd 48a5            movs    qword ptr [rdi],qword ptr [rsi]
+00007ffe`e05707bf 33c0            xor     eax,eax
+00007ffe`e05707c1 8bc0            mov     eax,eax
+00007ffe`e05707c3 488945e0        mov     qword ptr [rbp-20h],rax
+00007ffe`e05707c7 4883c450        add     rsp,50h
+00007ffe`e05707cb 5e              pop     rsi
+00007ffe`e05707cc 5f              pop     rdi
+00007ffe`e05707cd 5d              pop     rbp
+00007ffe`e05707ce c3              ret

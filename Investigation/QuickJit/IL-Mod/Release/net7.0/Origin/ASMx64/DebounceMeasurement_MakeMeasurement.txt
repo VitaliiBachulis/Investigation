@@ -1,0 +1,77 @@
+0:000> !DumpMD /d 00007ffe560dbef0
+Method Name:          IntruderAlert.DebounceMeasurement.MakeMeasurement()
+Class:                00007ffe560c2588
+MethodTable:          00007ffe560dbf08
+mdToken:              0000000006000007
+Module:               00007ffe560aca20
+IsJitted:             yes
+Current CodeAddr:     00007ffe55fe09b0
+Version History:
+  ILCodeVersion:      0000000000000000
+  ReJIT ID:           0
+  IL Addr:            0000018038b420f0
+     CodeAddr:           00007ffe55fe09b0  (QuickJitted)
+     NativeCodeVersion:  0000000000000000
+0:000> !DumpIL /i 0000018038b420f0
+ilAddr = 0000018038B420F0
+IL_0000: ldarg.0 
+IL_0001: ldfld TOKEN 4000003
+IL_0006: ldc.i4.s 12
+IL_0008: rem 
+IL_0009: stloc.0 
+IL_000a: ldarg.0 
+IL_000b: ldflda TOKEN 4000005
+IL_0010: ldloc.0 
+IL_0011: call TOKEN a00001b
+IL_0016: call TOKEN 600000a
+IL_001b: ldarg.0 
+IL_001c: ldarg.0 
+IL_001d: ldfld TOKEN 4000003
+IL_0022: ldc.i4.1 
+IL_0023: add 
+IL_0024: stfld TOKEN 4000003
+IL_0029: ret 
+0:000> !U /d 00007ffe55fe09b0
+Normal JIT generated code
+IntruderAlert.DebounceMeasurement.MakeMeasurement()
+ilAddr is 0000018038B420F0 pImport is 00000289350B9A80
+Begin 00007FFE55FE09B0, size 64
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\DebounceMeasurement.cs @ 21:
+>>> 00007ffe`55fe09b0 55              push    rbp
+00007ffe`55fe09b1 4883ec30        sub     rsp,30h
+00007ffe`55fe09b5 488d6c2430      lea     rbp,[rsp+30h]
+00007ffe`55fe09ba 33c0            xor     eax,eax
+00007ffe`55fe09bc 8945fc          mov     dword ptr [rbp-4],eax
+00007ffe`55fe09bf 48894d10        mov     qword ptr [rbp+10h],rcx
+00007ffe`55fe09c3 488b4510        mov     rax,qword ptr [rbp+10h]
+00007ffe`55fe09c7 8b00            mov     eax,dword ptr [rax]
+00007ffe`55fe09c9 8945f8          mov     dword ptr [rbp-8],eax
+00007ffe`55fe09cc 8b45f8          mov     eax,dword ptr [rbp-8]
+00007ffe`55fe09cf b90c000000      mov     ecx,0Ch
+00007ffe`55fe09d4 99              cdq
+00007ffe`55fe09d5 f7f9            idiv    eax,ecx
+00007ffe`55fe09d7 8d0c40          lea     ecx,[rax+rax*2]
+00007ffe`55fe09da c1e102          shl     ecx,2
+00007ffe`55fe09dd 8b55f8          mov     edx,dword ptr [rbp-8]
+00007ffe`55fe09e0 2bd1            sub     edx,ecx
+00007ffe`55fe09e2 8955fc          mov     dword ptr [rbp-4],edx
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\DebounceMeasurement.cs @ 22:
+00007ffe`55fe09e5 488b4d10        mov     rcx,qword ptr [rbp+10h]
+00007ffe`55fe09e9 3809            cmp     byte ptr [rcx],cl
+00007ffe`55fe09eb 488b4d10        mov     rcx,qword ptr [rbp+10h]
+00007ffe`55fe09ef 4881c148020000  add     rcx,248h
+00007ffe`55fe09f6 8b55fc          mov     edx,dword ptr [rbp-4]
+00007ffe`55fe09f9 ff1531af1000    call    qword ptr [00007ffe`560eb930] (System.Span`1[[IntruderAlert.SensorMeasurement, Investigation]].get_Item(Int32), mdToken: 0000000006001B15)
+00007ffe`55fe09ff 488bc8          mov     rcx,rax
+00007ffe`55fe0a02 ff1598ae1000    call    qword ptr [00007ffe`560eb8a0] (IntruderAlert.SensorMeasurement.FillMeasurement(), mdToken: 000000000600000A)
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\DebounceMeasurement.cs @ 23:
+00007ffe`55fe0a08 488b4510        mov     rax,qword ptr [rbp+10h]
+00007ffe`55fe0a0c ff00            inc     dword ptr [rax]
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\DebounceMeasurement.cs @ 24:
+00007ffe`55fe0a0e 4883c430        add     rsp,30h
+00007ffe`55fe0a12 5d              pop     rbp
+00007ffe`55fe0a13 c3              ret

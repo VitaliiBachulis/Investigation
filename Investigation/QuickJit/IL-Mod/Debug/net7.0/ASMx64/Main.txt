@@ -1,0 +1,69 @@
+0:000> !DumpMD /d 00007ffee063e9f0
+Method Name:          Program.<Main>$(System.String[])
+Class:                00007ffee061fd08
+MethodTable:          00007ffee063ea30
+mdToken:              0000000006000003
+Module:               00007ffee063ca20
+IsJitted:             yes
+Current CodeAddr:     00007ffee0570640
+Version History:
+  ILCodeVersion:      0000000000000000
+  ReJIT ID:           0
+  IL Addr:            000001e0901c206c
+     CodeAddr:           00007ffee0570640  (QuickJitted)
+     NativeCodeVersion:  0000000000000000
+0:000> !DumpIL /i 000001e0901c206c
+ilAddr = 000001E0901C206C
+IL_0000: ldloca.s VAR OR ARG 0
+IL_0002: call TOKEN 6000006
+IL_0007: ldloca.s VAR OR ARG 0
+IL_0009: ldc.i4.s 14
+IL_000b: call TOKEN 6000007
+IL_0010: nop 
+IL_0011: ldstr TOKEN 70000001
+IL_0016: call TOKEN a00000e
+IL_001b: nop 
+IL_001c: call TOKEN a00000f
+IL_0021: pop 
+IL_0022: nop 
+IL_0023: ret 
+0:000> !U /d 00007ffee0570640
+Normal JIT generated code
+Program.<Main>$(System.String[])
+ilAddr is 000001E0901C206C pImport is 000002264622B000
+Begin 00007FFEE0570640, size b7
+>>> 00007ffe`e0570640 55              push    rbp
+00007ffe`e0570641 4881ec90020000  sub     rsp,290h
+00007ffe`e0570648 488dac2490020000 lea     rbp,[rsp+290h]
+00007ffe`e0570650 0f57e4          xorps   xmm4,xmm4
+00007ffe`e0570653 0f29a590fdffff  movaps  xmmword ptr [rbp-270h],xmm4
+00007ffe`e057065a 0f29a5a0fdffff  movaps  xmmword ptr [rbp-260h],xmm4
+00007ffe`e0570661 48b8c0fdffffffffffff mov rax,0FFFFFFFFFFFFFDC0h
+00007ffe`e057066b 0f296405f0      movaps  xmmword ptr [rbp+rax-10h],xmm4
+00007ffe`e0570670 0f292428        movaps  xmmword ptr [rax+rbp],xmm4
+00007ffe`e0570674 0f29640510      movaps  xmmword ptr [rbp+rax+10h],xmm4
+00007ffe`e0570679 4883c030        add     rax,30h
+00007ffe`e057067d 75ec            jne     00007ffe`e057066b
+00007ffe`e057067f 488945f0        mov     qword ptr [rbp-10h],rax
+00007ffe`e0570683 48b8deee04f6da7b0000 mov rax,7BDAF604EEDEh
+00007ffe`e057068d 488945f8        mov     qword ptr [rbp-8],rax
+00007ffe`e0570691 48894d10        mov     qword ptr [rbp+10h],rcx
+00007ffe`e0570695 488b4d10        mov     rcx,qword ptr [rbp+10h]
+00007ffe`e0570699 48898d90fdffff  mov     qword ptr [rbp-270h],rcx
+00007ffe`e05706a0 488d8da0fdffff  lea     rcx,[rbp-260h]
+00007ffe`e05706a7 ff15f3b41000    call    qword ptr [00007ffe`e067bba0] (IntruderAlert.Room..ctor(), mdToken: 0000000006000006)
+00007ffe`e05706ad 488d8da0fdffff  lea     rcx,[rbp-260h]
+00007ffe`e05706b4 ba0e000000      mov     edx,0Eh
+00007ffe`e05706b9 ff15f9b41000    call    qword ptr [00007ffe`e067bbb8] (IntruderAlert.Room.TakeMeasurements(Int32), mdToken: 0000000006000007)
+00007ffe`e05706bf 48b9d8208090e0010000 mov rcx,1E0908020D8h
+00007ffe`e05706c9 488b09          mov     rcx,qword ptr [rcx]
+00007ffe`e05706cc ff150ed11000    call    qword ptr [00007ffe`e067d7e0]
+00007ffe`e05706d2 ff15b8cf1000    call    qword ptr [00007ffe`e067d690]
+00007ffe`e05706d8 48b9deee04f6da7b0000 mov rcx,7BDAF604EEDEh
+00007ffe`e05706e2 48394df8        cmp     qword ptr [rbp-8],rcx
+00007ffe`e05706e6 7405            je      00007ffe`e05706ed
+00007ffe`e05706e8 e8b3aec35f      call    coreclr!GetCLRRuntimeHost+0x7c1b0 (00007fff`401ab5a0) (JitHelp: CORINFO_HELP_FAIL_FAST)
+00007ffe`e05706ed 90              nop
+00007ffe`e05706ee 4881c490020000  add     rsp,290h
+00007ffe`e05706f5 5d              pop     rbp
+00007ffe`e05706f6 c3              ret

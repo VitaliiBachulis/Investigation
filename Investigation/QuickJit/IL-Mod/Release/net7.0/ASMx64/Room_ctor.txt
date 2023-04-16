@@ -1,0 +1,34 @@
+0:000> !DumpMD /d 00007ffe560cbfb0
+Method Name:          IntruderAlert.Room..ctor()
+Class:                00007ffe560b24d8
+MethodTable:          00007ffe560cbfd8
+mdToken:              0000000006000006
+Module:               00007ffe5609ca20
+IsJitted:             yes
+Current CodeAddr:     00007ffe55fd0710
+Version History:
+  ILCodeVersion:      0000000000000000
+  ReJIT ID:           0
+  IL Addr:            0000024e5c7a20bc
+     CodeAddr:           00007ffe55fd0710  (QuickJitted)
+     NativeCodeVersion:  0000000000000000
+0:000> !DumpIL /i 0000024e5c7a20bc
+ilAddr = 0000024E5C7A20BC
+IL_0000: ldarg.0 
+IL_0001: call TOKEN 6000009
+IL_0006: ret 
+0:000> !U /d 00007ffe55fd0710
+Normal JIT generated code
+IntruderAlert.Room..ctor()
+ilAddr is 0000024E5C7A20BC pImport is 000002A035AEA2A0
+Begin 00007FFE55FD0710, size 1f
+>>> 00007ffe`55fd0710 55              push    rbp
+00007ffe`55fd0711 4883ec20        sub     rsp,20h
+00007ffe`55fd0715 488d6c2420      lea     rbp,[rsp+20h]
+00007ffe`55fd071a 48894d10        mov     qword ptr [rbp+10h],rcx
+00007ffe`55fd071e 488b4d10        mov     rcx,qword ptr [rbp+10h]
+00007ffe`55fd0722 ff1548b41000    call    qword ptr [00007ffe`560dbb70] (IntruderAlert.DebounceMeasurement..ctor(), mdToken: 0000000006000009)
+00007ffe`55fd0728 90              nop
+00007ffe`55fd0729 4883c420        add     rsp,20h
+00007ffe`55fd072d 5d              pop     rbp
+00007ffe`55fd072e c3              ret

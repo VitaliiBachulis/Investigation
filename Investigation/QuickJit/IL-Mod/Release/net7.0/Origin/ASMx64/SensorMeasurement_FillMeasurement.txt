@@ -1,0 +1,47 @@
+0:000> !DumpMD /d 00007ffe560dba90
+Method Name:          IntruderAlert.SensorMeasurement.FillMeasurement()
+Class:                00007ffe560c2b00
+MethodTable:          00007ffe560dbaa8
+mdToken:              000000000600000A
+Module:               00007ffe560aca20
+IsJitted:             yes
+Current CodeAddr:     00007ffe55fe0a80
+Version History:
+  ILCodeVersion:      0000000000000000
+  ReJIT ID:           0
+  IL Addr:            0000018038b42158
+     CodeAddr:           00007ffe55fe0a80  (QuickJitted)
+     NativeCodeVersion:  0000000000000000
+0:000> !DumpIL /i 0000018038b42158
+ilAddr = 0000018038B42158
+IL_0000: ldarg.0 
+IL_0001: ldc.i8 -1
+IL_000a: stfld TOKEN 4000008
+IL_000f: ldarg.0 
+IL_0010: ldc.i4.1 
+IL_0011: conv.i8 
+IL_0012: stfld TOKEN 400000d
+IL_0017: ret 
+0:000> !U /d 00007ffe55fe0a80
+Normal JIT generated code
+IntruderAlert.SensorMeasurement.FillMeasurement()
+ilAddr is 0000018038B42158 pImport is 00000289350B9D20
+Begin 00007FFE55FE0A80, size 2a
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\SensorMeasurement.cs @ 14:
+>>> 00007ffe`55fe0a80 55              push    rbp
+00007ffe`55fe0a81 488bec          mov     rbp,rsp
+00007ffe`55fe0a84 48894d10        mov     qword ptr [rbp+10h],rcx
+00007ffe`55fe0a88 488b4510        mov     rax,qword ptr [rbp+10h]
+00007ffe`55fe0a8c 48baffffffffffffff7f mov rdx,7FFFFFFFFFFFFFFFh
+00007ffe`55fe0a96 488910          mov     qword ptr [rax],rdx
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\SensorMeasurement.cs @ 15:
+00007ffe`55fe0a99 b801000000      mov     eax,1
+00007ffe`55fe0a9e 4898            cdqe
+00007ffe`55fe0aa0 488b5510        mov     rdx,qword ptr [rbp+10h]
+00007ffe`55fe0aa4 48894228        mov     qword ptr [rdx+28h],rax
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\SensorMeasurement.cs @ 16:
+00007ffe`55fe0aa8 5d              pop     rbp
+00007ffe`55fe0aa9 c3              ret

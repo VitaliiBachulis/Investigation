@@ -1,0 +1,89 @@
+0:000> !DumpMD /d 00007ffede57d518
+Method Name:          Program.<Main>$(System.String[])
+Class:                00007ffede55fd08
+MethodTable:          00007ffede57d558
+mdToken:              0000000006000003
+Module:               00007ffede57b548
+IsJitted:             yes
+Current CodeAddr:     00007ffede4b0640
+Version History:
+  ILCodeVersion:      0000000000000000
+  ReJIT ID:           0
+  IL Addr:            0000013047fe206c
+     CodeAddr:           00007ffede4b0640  (Optimized)
+     NativeCodeVersion:  0000000000000000
+0:000> !DumpIL /i 0000013047fe206c
+ilAddr = 0000013047FE206C
+IL_0000: ldloca.s VAR OR ARG 0
+IL_0002: call TOKEN 6000006
+IL_0007: ldloca.s VAR OR ARG 0
+IL_0009: ldc.i4.s 14
+IL_000b: call TOKEN 6000007
+IL_0010: nop 
+IL_0011: ldstr TOKEN 70000001
+IL_0016: call TOKEN a00000e
+IL_001b: nop 
+IL_001c: call TOKEN a00000f
+IL_0021: pop 
+IL_0022: nop 
+IL_0023: ret 
+0:000> !U /d 00007ffede4b0640
+Normal JIT generated code
+Program.<Main>$(System.String[])
+ilAddr is 0000013047FE206C pImport is 00000242FD04C580
+Begin 00007FFEDE4B0640, size 10c
+>>> 00007ffe`de4b0640 4881ec88020000  sub     rsp,288h
+00007ffe`de4b0647 0f57e4          xorps   xmm4,xmm4
+00007ffe`de4b064a 0f29642420      movaps  xmmword ptr [rsp+20h],xmm4
+00007ffe`de4b064f 48b8c0fdffffffffffff mov rax,0FFFFFFFFFFFFFDC0h
+00007ffe`de4b0659 0f29a40470020000 movaps  xmmword ptr [rsp+rax+270h],xmm4
+00007ffe`de4b0661 0f29a40480020000 movaps  xmmword ptr [rsp+rax+280h],xmm4
+00007ffe`de4b0669 0f29a40490020000 movaps  xmmword ptr [rsp+rax+290h],xmm4
+00007ffe`de4b0671 4883c030        add     rax,30h
+00007ffe`de4b0675 75e2            jne     Investigation!Program.<Main>$+0x19 (00007ffe`de4b0659)
+00007ffe`de4b0677 4889842470020000 mov     qword ptr [rsp+270h],rax
+00007ffe`de4b067f 48b85ecb4246c6e80000 mov rax,0E8C64642CB5Eh
+00007ffe`de4b0689 4889842480020000 mov     qword ptr [rsp+280h],rax
+00007ffe`de4b0691 488d442424      lea     rax,[rsp+24h]
+00007ffe`de4b0696 4889842468020000 mov     qword ptr [rsp+268h],rax
+00007ffe`de4b069e c78424700200000c000000 mov dword ptr [rsp+270h],0Ch
+00007ffe`de4b06a9 33c9            xor     ecx,ecx
+00007ffe`de4b06ab 448b442420      mov     r8d,dword ptr [rsp+20h]
+00007ffe`de4b06b0 baabaaaa2a      mov     edx,2AAAAAABh
+00007ffe`de4b06b5 8bc2            mov     eax,edx
+00007ffe`de4b06b7 f76c2420        imul    dword ptr [rsp+20h]
+00007ffe`de4b06bb 8bc2            mov     eax,edx
+00007ffe`de4b06bd c1e81f          shr     eax,1Fh
+00007ffe`de4b06c0 d1fa            sar     edx,1
+00007ffe`de4b06c2 03c2            add     eax,edx
+00007ffe`de4b06c4 8d0440          lea     eax,[rax+rax*2]
+00007ffe`de4b06c7 c1e002          shl     eax,2
+00007ffe`de4b06ca 442bc0          sub     r8d,eax
+00007ffe`de4b06cd 488d842468020000 lea     rax,[rsp+268h]
+00007ffe`de4b06d5 443b4008        cmp     r8d,dword ptr [rax+8]
+00007ffe`de4b06d9 736b            jae     Investigation!Program.<Main>$+0x106 (00007ffe`de4b0746)
+00007ffe`de4b06db 418bd0          mov     edx,r8d
+00007ffe`de4b06de 486bd230        imul    rdx,rdx,30h
+00007ffe`de4b06e2 480310          add     rdx,qword ptr [rax]
+00007ffe`de4b06e5 48b8ffffffffffffff7f mov rax,7FFFFFFFFFFFFFFFh
+00007ffe`de4b06ef 488902          mov     qword ptr [rdx],rax
+00007ffe`de4b06f2 48c7422801000000 mov     qword ptr [rdx+28h],1
+00007ffe`de4b06fa 8b442420        mov     eax,dword ptr [rsp+20h]
+00007ffe`de4b06fe ffc0            inc     eax
+00007ffe`de4b0700 89442420        mov     dword ptr [rsp+20h],eax
+00007ffe`de4b0704 ffc1            inc     ecx
+00007ffe`de4b0706 83f90e          cmp     ecx,0Eh
+00007ffe`de4b0709 7ca0            jl      Investigation!Program.<Main>$+0x6b (00007ffe`de4b06ab)
+00007ffe`de4b070b 48b9d820004a30010000 mov rcx,1304A0020D8h
+00007ffe`de4b0715 488b09          mov     rcx,qword ptr [rcx]
+00007ffe`de4b0718 ff15c2d01000    call    qword ptr [00007ffe`de5bd7e0]
+00007ffe`de4b071e ff156ccf1000    call    qword ptr [00007ffe`de5bd690]
+00007ffe`de4b0724 48b95ecb4246c6e80000 mov rcx,0E8C64642CB5Eh
+00007ffe`de4b072e 48398c2480020000 cmp     qword ptr [rsp+280h],rcx
+00007ffe`de4b0736 7405            je      Investigation!Program.<Main>$+0xfd (00007ffe`de4b073d)
+00007ffe`de4b0738 e863aec25f      call    coreclr!GetCLRRuntimeHost+0x7c1b0 (00007fff`3e0db5a0) (JitHelp: CORINFO_HELP_FAIL_FAST)
+00007ffe`de4b073d 90              nop
+00007ffe`de4b073e 4881c488020000  add     rsp,288h
+00007ffe`de4b0745 c3              ret
+00007ffe`de4b0746 e89593c25f      call    coreclr!GetCLRRuntimeHost+0x7a6f0 (00007fff`3e0d9ae0) (JitHelp: CORINFO_HELP_RNGCHKFAIL)
+00007ffe`de4b074b cc              int     3

@@ -1,0 +1,91 @@
+0:000> !DumpMD /d 00007ffee068bfd8
+Method Name:          IntruderAlert.Room.TakeMeasurements(Int32)
+Class:                00007ffee0672500
+MethodTable:          00007ffee068bff0
+mdToken:              0000000006000009
+Module:               00007ffee065ca20
+IsJitted:             yes
+Current CodeAddr:     00007ffee0590980
+Version History:
+  ILCodeVersion:      0000000000000000
+  ReJIT ID:           0
+  IL Addr:            000001e80a3c215c
+     CodeAddr:           00007ffee0590980  (MinOptJitted)
+     NativeCodeVersion:  0000000000000000
+0:000> !DumpIL /i 000001e80a3c215c
+ilAddr = 000001E80A3C215C
+IL_0000: nop 
+IL_0001: ldc.i4.0 
+IL_0002: stloc.0 
+IL_0003: br.s IL_0017
+IL_0005: nop 
+IL_0006: ldarg.0 
+IL_0007: ldflda TOKEN 4000006
+IL_000c: call TOKEN 6000007
+IL_0011: nop 
+IL_0012: nop 
+IL_0013: ldloc.0 
+IL_0014: ldc.i4.1 
+IL_0015: add 
+IL_0016: stloc.0 
+IL_0017: ldloc.0 
+IL_0018: ldarg.1 
+IL_0019: clt 
+IL_001b: stloc.1 
+IL_001c: ldloc.1 
+IL_001d: brtrue.s IL_0105
+IL_001f: ret 
+0:000> !U /d 00007ffee0590980
+Normal JIT generated code
+IntruderAlert.Room.TakeMeasurements(Int32)
+ilAddr is 000001E80A3C215C pImport is 000001F92EAD4A80
+Begin 00007FFEE0590980, size 61
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\Room.cs @ 11:
+>>> 00007ffe`e0590980 55              push    rbp
+00007ffe`e0590981 4883ec30        sub     rsp,30h
+00007ffe`e0590985 488d6c2430      lea     rbp,[rsp+30h]
+00007ffe`e059098a 33c0            xor     eax,eax
+00007ffe`e059098c 8945fc          mov     dword ptr [rbp-4],eax
+00007ffe`e059098f 8945f8          mov     dword ptr [rbp-8],eax
+00007ffe`e0590992 48894d10        mov     qword ptr [rbp+10h],rcx
+00007ffe`e0590996 895518          mov     dword ptr [rbp+18h],edx
+00007ffe`e0590999 833d28c30c0000  cmp     dword ptr [00007ffe`e065ccc8],0
+00007ffe`e05909a0 7405            je      00007ffe`e05909a7
+00007ffe`e05909a2 e8696dc15f      call    coreclr!GetCLRRuntimeHost+0x78320 (00007fff`401a7710) (JitHelp: CORINFO_HELP_DBG_IS_JUST_MY_CODE)
+00007ffe`e05909a7 90              nop
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\Room.cs @ 12:
+00007ffe`e05909a8 33c9            xor     ecx,ecx
+00007ffe`e05909aa 894dfc          mov     dword ptr [rbp-4],ecx
+00007ffe`e05909ad 90              nop
+00007ffe`e05909ae eb15            jmp     00007ffe`e05909c5
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\Room.cs @ 13:
+00007ffe`e05909b0 90              nop
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\Room.cs @ 14:
+00007ffe`e05909b1 488b4d10        mov     rcx,qword ptr [rbp+10h]
+00007ffe`e05909b5 ff15cdb11000    call    qword ptr [00007ffe`e069bb88] (IntruderAlert.DebounceMeasurement.MakeMeasurement(), mdToken: 0000000006000007)
+00007ffe`e05909bb 90              nop
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\Room.cs @ 15:
+00007ffe`e05909bc 90              nop
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\Room.cs @ 12:
+00007ffe`e05909bd 8b45fc          mov     eax,dword ptr [rbp-4]
+00007ffe`e05909c0 ffc0            inc     eax
+00007ffe`e05909c2 8945fc          mov     dword ptr [rbp-4],eax
+00007ffe`e05909c5 8b4dfc          mov     ecx,dword ptr [rbp-4]
+00007ffe`e05909c8 3b4d18          cmp     ecx,dword ptr [rbp+18h]
+00007ffe`e05909cb 0f9cc1          setl    cl
+00007ffe`e05909ce 0fb6c9          movzx   ecx,cl
+00007ffe`e05909d1 894df8          mov     dword ptr [rbp-8],ecx
+00007ffe`e05909d4 837df800        cmp     dword ptr [rbp-8],0
+00007ffe`e05909d8 75d6            jne     00007ffe`e05909b0
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\Room.cs @ 16:
+00007ffe`e05909da 90              nop
+00007ffe`e05909db 4883c430        add     rsp,30h
+00007ffe`e05909df 5d              pop     rbp
+00007ffe`e05909e0 c3              ret

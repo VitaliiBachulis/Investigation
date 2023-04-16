@@ -1,0 +1,88 @@
+0:000> !DumpMD /d 00007ffee063d530
+Method Name:          Program.<Main>$(System.String[])
+Class:                00007ffee061fd30
+MethodTable:          00007ffee063d570
+mdToken:              0000000006000003
+Module:               00007ffee063b548
+IsJitted:             yes
+Current CodeAddr:     00007ffee0570640
+Version History:
+  ILCodeVersion:      0000000000000000
+  ReJIT ID:           0
+  IL Addr:            000002083a25206c
+     CodeAddr:           00007ffee0570640  (MinOptJitted)
+     NativeCodeVersion:  0000000000000000
+0:000> !DumpIL /i 000002083a25206c
+ilAddr = 000002083A25206C
+IL_0000: ldloca.s VAR OR ARG 0
+IL_0002: call TOKEN 6000008
+IL_0007: ldloca.s VAR OR ARG 0
+IL_0009: ldc.i4.s 14
+IL_000b: call TOKEN 6000009
+IL_0010: nop 
+IL_0011: ldstr TOKEN 70000001
+IL_0016: call TOKEN a000016
+IL_001b: nop 
+IL_001c: call TOKEN a000017
+IL_0021: pop 
+IL_0022: nop 
+IL_0023: ret 
+0:000> !U /d 00007ffee0570640
+Normal JIT generated code
+Program.<Main>$(System.String[])
+ilAddr is 000002083A25206C pImport is 000002217D2ED190
+Begin 00007FFEE0570640, size da
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\Program.cs @ 10:
+>>> 00007ffe`e0570640 55              push    rbp
+00007ffe`e0570641 4881eca0020000  sub     rsp,2A0h
+00007ffe`e0570648 488dac24a0020000 lea     rbp,[rsp+2A0h]
+00007ffe`e0570650 33c0            xor     eax,eax
+00007ffe`e0570652 48898588fdffff  mov     qword ptr [rbp-278h],rax
+00007ffe`e0570659 0f57e4          xorps   xmm4,xmm4
+00007ffe`e057065c 0f29a590fdffff  movaps  xmmword ptr [rbp-270h],xmm4
+00007ffe`e0570663 0f29a5a0fdffff  movaps  xmmword ptr [rbp-260h],xmm4
+00007ffe`e057066a 48b8c0fdffffffffffff mov rax,0FFFFFFFFFFFFFDC0h
+00007ffe`e0570674 0f296405f0      movaps  xmmword ptr [rbp+rax-10h],xmm4
+00007ffe`e0570679 0f292428        movaps  xmmword ptr [rax+rbp],xmm4
+00007ffe`e057067d 0f29640510      movaps  xmmword ptr [rbp+rax+10h],xmm4
+00007ffe`e0570682 4883c030        add     rax,30h
+00007ffe`e0570686 75ec            jne     00007ffe`e0570674
+00007ffe`e0570688 488945f0        mov     qword ptr [rbp-10h],rax
+00007ffe`e057068c 48b82253c198d4030000 mov rax,3D498C15322h
+00007ffe`e0570696 488945f8        mov     qword ptr [rbp-8],rax
+00007ffe`e057069a 48894d10        mov     qword ptr [rbp+10h],rcx
+00007ffe`e057069e 488b4510        mov     rax,qword ptr [rbp+10h]
+00007ffe`e05706a2 48898588fdffff  mov     qword ptr [rbp-278h],rax
+00007ffe`e05706a9 833d40b10c0000  cmp     dword ptr [00007ffe`e063b7f0],0
+00007ffe`e05706b0 7405            je      00007ffe`e05706b7
+00007ffe`e05706b2 e85970c35f      call    coreclr!GetCLRRuntimeHost+0x78320 (00007fff`401a7710) (JitHelp: CORINFO_HELP_DBG_IS_JUST_MY_CODE)
+00007ffe`e05706b7 488d8da0fdffff  lea     rcx,[rbp-260h]
+00007ffe`e05706be ff15dcb41000    call    qword ptr [00007ffe`e067bba0] (IntruderAlert.Room..ctor(), mdToken: 0000000006000008)
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\Program.cs @ 14:
+00007ffe`e05706c4 488d8da0fdffff  lea     rcx,[rbp-260h]
+00007ffe`e05706cb ba0e000000      mov     edx,0Eh
+00007ffe`e05706d0 ff15e2b41000    call    qword ptr [00007ffe`e067bbb8] (IntruderAlert.Room.TakeMeasurements(Int32), mdToken: 0000000006000009)
+00007ffe`e05706d6 90              nop
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\Program.cs @ 16:
+00007ffe`e05706d7 48b9d820003c08020000 mov rcx,2083C0020D8h
+00007ffe`e05706e1 488b09          mov     rcx,qword ptr [rcx]
+00007ffe`e05706e4 ff15f6d01000    call    qword ptr [00007ffe`e067d7e0]
+00007ffe`e05706ea 90              nop
+
+C:\Users\vetal\Documents\Study\Investigation\Investigation\Program.cs @ 17:
+00007ffe`e05706eb ff159fcf1000    call    qword ptr [00007ffe`e067d690]
+00007ffe`e05706f1 48898590fdffff  mov     qword ptr [rbp-270h],rax
+00007ffe`e05706f8 90              nop
+00007ffe`e05706f9 90              nop
+00007ffe`e05706fa 90              nop
+00007ffe`e05706fb 48b92253c198d4030000 mov rcx,3D498C15322h
+00007ffe`e0570705 48394df8        cmp     qword ptr [rbp-8],rcx
+00007ffe`e0570709 7405            je      00007ffe`e0570710
+00007ffe`e057070b e890aec35f      call    coreclr!GetCLRRuntimeHost+0x7c1b0 (00007fff`401ab5a0) (JitHelp: CORINFO_HELP_FAIL_FAST)
+00007ffe`e0570710 90              nop
+00007ffe`e0570711 4881c4a0020000  add     rsp,2A0h
+00007ffe`e0570718 5d              pop     rbp
+00007ffe`e0570719 c3              ret
